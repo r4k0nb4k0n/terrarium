@@ -33,8 +33,9 @@ function dblClickElement(terrariumElement) {
   terrariumElement.ondblclick = (e) => {
     e.preventDefault();
     console.log(e);
-    terrariumElement.style.zIndex = zIndex + terrariumElement.style.zIndex;
-    terrariumElement.style.zIndex = terrariumElement.style.zIndex + 1;
+    terrariumElement.style.zIndex =
+      zIndex + parseInt(terrariumElement.style.zIndex);
+    terrariumElement.style.zIndex = parseInt(terrariumElement.style.zIndex) + 1;
   };
 }
 
