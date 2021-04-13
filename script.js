@@ -28,17 +28,21 @@ function dragElement(terrariumElement) {
   terrariumElement.onpointerdown = pointerDrag;
 }
 
-dragElement(document.getElementById("plant1"));
-dragElement(document.getElementById("plant2"));
-dragElement(document.getElementById("plant3"));
-dragElement(document.getElementById("plant4"));
-dragElement(document.getElementById("plant5"));
-dragElement(document.getElementById("plant6"));
-dragElement(document.getElementById("plant7"));
-dragElement(document.getElementById("plant8"));
-dragElement(document.getElementById("plant9"));
-dragElement(document.getElementById("plant10"));
-dragElement(document.getElementById("plant11"));
-dragElement(document.getElementById("plant12"));
-dragElement(document.getElementById("plant13"));
-dragElement(document.getElementById("plant14"));
+function dblClickElement(terrariumElement) {
+  let zIndex = 2;
+  terrariumElement.ondblclick = (e) => {
+    e.preventDefault();
+    console.log(e);
+    terrariumElement.style.zIndex = zIndex + terrariumElement.style.zIndex;
+    terrariumElement.style.zIndex = terrariumElement.style.zIndex + 1;
+  };
+}
+
+const plants = [];
+let i = 1;
+while (i <= 14) {
+  plants.push(document.getElementById(`plant${i}`));
+  dragElement(plants[plants.length - 1]);
+  dblClickElement(plants[plants.length - 1]);
+  i++;
+}
